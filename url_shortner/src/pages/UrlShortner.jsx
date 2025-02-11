@@ -8,6 +8,8 @@ const UrlShortner = () => {
   const [url, setUrl] = useState('');
   const [shortUrl, setShortUrl] = useState('');
   const API_BASE_URL = process.env.REACT_APP_API_URL;
+  console.log("API Base URL:", process.env.REACT_APP_API_URL);
+
 
   const handleShorten = async () => {
     try {
