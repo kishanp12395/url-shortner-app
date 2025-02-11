@@ -7,14 +7,13 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 const UrlShortner = () => {
   const [url, setUrl] = useState('');
   const [shortUrl, setShortUrl] = useState('');
-  const API_BASE_URL = process.env.REACT_APP_API_URL;
-  console.log("API Base URL:", process.env.REACT_APP_API_URL);
-
 
   const handleShorten = async () => {
     try {
+      const API_BASE_URL = "https://url-shortner-app-2.onrender.com";
       const { data } = await axios.post(`${API_BASE_URL}/api/url/shorten`, { originalUrl: url });
       setShortUrl(`${API_BASE_URL}/api/url/${data.shortUrl}`);
+
       toast.success('URL shortened successfully!');
       setUrl("")
     } catch (error) {
