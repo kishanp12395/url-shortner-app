@@ -10,8 +10,9 @@ const UrlShortner = () => {
 
   const handleShorten = async () => {
     try {
-      const { data } = await axios.post('http://localhost:5000/api/url/shorten', { originalUrl: url });
-      setShortUrl(`http://localhost:5000/api/url/${data.shortUrl}`);
+      const API_BASE_URL = "https://url-shortner-app-2.onrender.com";
+      const { data } = await axios.post(`${API_BASE_URL}/api/url/shorten`, { originalUrl: url });
+      setShortUrl(`${API_BASE_URL}/api/url/${data.shortUrl}`);
       toast.success('URL shortened successfully!');
       setUrl("")
     } catch (error) {
